@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Chismógrafo de La Palma</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070714;--p:#11112b;--cy:#00e5ff;--mg:#ff2d95;--vi:#a855f7;--ink:#eaf6ff;--mu:#8fa3c8;--ln:rgba(0,229,255,.2)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%}
+body{font-family:Rajdhani,system-ui,sans-serif;color:var(--ink);background:radial-gradient(900px 600px at 80% -10%,rgba(255,45,149,.16),transparent 60%),radial-gradient(800px 500px at 0 110%,rgba(0,229,255,.14),transparent 55%),var(--bg);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.w{max-width:760px;margin:0 auto;padding:16px;min-height:100dvh;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:10px;font-family:Orbitron;font-size:13px;color:var(--cy);letter-spacing:2px;text-transform:uppercase}
+.top small{margin-left:auto;color:var(--mu);letter-spacing:1px}.top small b{color:var(--mg)}
+.bar{height:6px;border-radius:9px;background:rgba(255,255,255,.07);border:1px solid var(--ln);margin:10px 0;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cy),var(--vi),var(--mg));transition:width .5s}
+#st{flex:1;display:flex;flex-direction:column;justify-content:center}
+h1{font-family:Orbitron;font-weight:900;font-size:clamp(34px,10vw,64px);line-height:1;margin:0;text-align:center;background:linear-gradient(120deg,#fff,var(--cy) 40%,var(--mg));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 small{display:block;font-size:clamp(14px,4vw,24px);letter-spacing:6px;margin-top:8px;color:var(--vi);-webkit-text-fill-color:var(--vi)}
+.eb{font-family:Orbitron;letter-spacing:4px;font-size:11px;color:var(--mu);text-align:center;margin-bottom:12px}
+.lede{max-width:50ch;margin:16px auto 0;color:var(--mu);font-size:18px;line-height:1.4;text-align:center}.lede b{color:var(--ink)}
+.al{margin:20px auto 0;max-width:320px;text-align:center}
+input,textarea{width:100%;background:var(--p);border:1px solid var(--ln);color:var(--ink);font:600 18px Rajdhani;padding:12px;border-radius:12px;outline:none}
+input{text-align:center}textarea{min-height:90px;font-size:16px}
+input:focus,textarea:focus{border-color:var(--cy)}
+.k{font-family:Orbitron;font-size:11px;letter-spacing:3px;color:var(--mg);margin-bottom:6px}
+h2{margin:0 0 4px;font-size:clamp(22px,6vw,32px)}.sub{color:var(--mu);margin-bottom:14px}
+.g{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:560px){.g.c3{grid-template-columns:repeat(3,1fr)}}
+.o{display:flex;align-items:center;gap:10px;min-height:62px;padding:12px;text-align:left;cursor:pointer;color:var(--ink);font:600 16px Rajdhani;background:var(--p);border:1.5px solid var(--ln);border-radius:16px;transition:.15s}
+.o:hover{border-color:var(--cy);transform:translateY(-2px)}
+.o .e{font-size:26px}.o.s{border-color:var(--mg);box-shadow:0 0 22px rgba(255,45,149,.3);background:rgba(255,45,149,.12)}
+.nav{display:flex;gap:10px;padding-top:14px}
+.b{font:700 14px Orbitron;letter-spacing:1.5px;text-transform:uppercase;border:0;cursor:pointer;padding:14px 20px;border-radius:14px;color:#05121a;background:linear-gradient(120deg,var(--cy),var(--vi));flex:1}
+.b.gh{background:transparent;color:var(--mu);border:1.5px solid var(--ln);flex:none}
+.b[disabled]{opacity:.4;cursor:not-allowed}
+.card{background:var(--p);border:1.5px solid var(--ln);border-radius:18px;padding:16px;margin-bottom:12px}
+.pr{display:flex;gap:10px;align-items:center;padding:8px 10px;margin:6px 0;border:1px solid var(--ln);border-radius:12px;background:rgba(0,229,255,.05)}
+.pr .e{font-size:22px}.pr span{font-size:12px;color:var(--mu);text-transform:uppercase;display:block}.pr b{font-size:17px}
+.fo{text-align:center;font:11px Orbitron;color:var(--mu);letter-spacing:2px;opacity:.7;padding:8px}
+.lk{background:none;border:0;color:var(--mu);font:12px Orbitron;letter-spacing:1px;cursor:pointer;margin:14px auto 0;display:block;text-decoration:underline}
+.row{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:15px}
+.row .l{width:42%;font-weight:600}.row .t{flex:1;height:14px;border-radius:7px;background:rgba(255,255,255,.07);overflow:hidden}
+.row .t i{display:block;height:100%;background:linear-gradient(90deg,var(--cy),var(--mg));border-radius:7px}
+.row .n{width:64px;text-align:right;color:var(--mu);font-size:13px}
+.an{white-space:pre-wrap;line-height:1.5;font-size:16px}
+.tag{display:inline-block;padding:2px 10px;border-radius:99px;border:1px solid var(--ln);font-size:13px;color:var(--cy);margin-left:6px}
+@media print{body{background:#fff;color:#000}.top,.bar,.fo,.nav{display:none}textarea,input,.card,.pr{border:1px solid #999;background:#fff;color:#000}h1,h2{color:#000;-webkit-text-fill-color:#000}}
+</style></head><body><div class="w">
+<div class="top"><span>⬡ El Chismógrafo de La Palma</span><small id="ct"></small></div>
+<div class="bar"><i id="fl"></i></div>
+<div id="st"></div>
+<div class="fo">CREANDO EL VIDEOJUEGO DE NUESTRA CLASE</div></div>
+<script>
+const UNIV="La Palma";
+// URL de la aplicación web de Apps Script (termina en /exec)
+const SHEET_URL="https://script.google.com/macros/s/AKfycbzoanYa1SspbMDdC_NXoAcWuAD2fDyXGYeGpJ5W3JG5FSch2ZExQYjajRphNGQ-5Ww/exec";
+const Q=[
+{id:"area",k:"EL CHISME EMPIEZA",t:"¿Cuál es tu materia favorita?",s:"Solo para agrupar los gustos. Nadie pide tu nombre.",c3:1,o:[["Matemáticas","🧮"],["Lenguaje","📖"],["Inglés / Idiomas","🌎"],["Ciencias / Física","🔬"],["Sociales","🗺️"],["Tecnología / Robótica","🤖"],["Arte","🎨"],["Deporte","⚽"]]},
+{id:"musica",k:"EL CHISME SUENA",t:"¿Qué música te gusta más?",s:"Tu género musical favorito.",c3:1,o:[["Reggaetón","🎶"],["Rock","🎸"],["Pop","💖"],["Trap / Hip-hop","🎤"],["Electrónica","💿"],["Vallenato / Popular","🪗"],["K-pop","⭐"],["Otro","🌐"]]},
+{id:"mundo",k:"CONFIÉSALO…",t:"¿Qué historias te atrapan?",s:"El tipo de aventura que más disfrutas.",o:[["Acción y aventura","⚡"],["Fantasía y magia","🧙"],["Terror y misterio","💀"],["Futuro y ciencia ficción","🚀"],["Comedia","😄"],["Deportes","🏆"]]},
+{id:"avatar",k:"TU SECRETO",t:"¿Con quién te identificas?",s:"El personaje que te gustaría ser.",o:[["Héroe / heroína","🦸"],["Explorador","🧭"],["Mago o ser mágico","🔮"],["Robot / tecnológico","🤖"],["Guerrero","⚔️"],["Animal / criatura","🐾"]]},
+{id:"estilo",k:"DINOS LA VERDAD",t:"¿Qué juegos prefieres?",s:"El tipo de videojuego que más te gusta.",c3:1,o:[["Acción","💥"],["Aventura","🧭"],["Deportes","⚽"],["Carreras","🏎️"],["Estrategia","♟️"],["Puzzle / lógica","🧩"],["Rol (RPG)","🎲"],["Trivia","🧠"]]},
+{id:"emocion",k:"LO ÚLTIMO",t:"¿Qué te gusta sentir al jugar?",s:"La emoción que buscas en un buen juego.",c3:1,o:[["Curiosidad","👀"],["Adrenalina","🔥"],["Concentración","🎯"],["Alegría","😄"],["Superación","💪"],["Asombro","✨"]]},
+{id:"idea",k:"BONUS · OPCIONAL",t:"¿Se te ocurre una idea?",s:"Si ya imaginas tu videojuego, cuéntalo en una frase. Puedes dejarlo en blanco.",open:1,ph:"Ej: un juego para repasar física lanzando cohetes…"}];
+const A={};let ix=-1,owner=true,CL="";
+const $=s=>document.querySelector(s),st=$("#st"),fl=$("#fl"),ct=$("#ct");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function scr(h){st.innerHTML=h}
+function chrome(){fl.style.width=ix<0?"0%":(ix/Q.length*100)+"%";ct.innerHTML=ix<0?"":"<b>"+(ix+1)+"</b> / "+Q.length}
+function intro(){ix=-1;chrome();
+scr(`<div class="eb">RECOGE GUSTOS · CREA TU UNIVERSO</div><h1>Chismógrafo<small>DE LA PALMA</small></h1>
+<p class="lede">El viejo cuaderno de chismes del salón, ahora al servicio del juego. Cuéntanos <b>tus gustos gamer</b>: con las respuestas de todos nacerá el videojuego de <b>${UNIV}</b>.</p>
+<div class="nav"><button class="b" id="go">Abrir el chismógrafo →</button></div><div class="nav" style="padding-top:8px"><button class="b" id="gd" style="background:linear-gradient(120deg,var(--mg),var(--vi))">🎮 Diseña tu propio juego</button></div>${owner?'<button class="lk" id="pd">🔒 Panel docente · analizar resultados</button>':''}`);
+$("#go").onclick=()=>go(0);$("#gd").onclick=guia;
+if(owner)$("#pd").onclick=panel}
+function qn(){const q=Q[ix];chrome();
+if(q.open){scr(`<div class="k">${q.k}</div><h2>${q.t}</h2><div class="sub">${q.s}</div><textarea id="fr" maxlength="220" placeholder="${q.ph}">${esc(A.idea||"")}</textarea><div class="nav"><button class="b gh" id="bk">← Atrás</button><button class="b" id="nx">Ver mi perfil →</button></div>`);
+$("#bk").onclick=()=>go(ix-1);$("#nx").onclick=()=>{A.idea=$("#fr").value.trim();resumen()};return}
+scr(`<div class="k">${q.k}</div><h2>${q.t}</h2><div class="sub">${q.s}</div><div class="g ${q.c3?"c3":""}">${q.o.map(o=>`<button class="o ${A[q.id]===o[0]?"s":""}" data-v="${esc(o[0])}"><span class="e">${o[1]}</span>${o[0]}</button>`).join("")}</div><div class="nav"><button class="b gh" id="bk">← Atrás</button><button class="b" id="nx" ${A[q.id]?"":"disabled"}>Siguiente →</button></div>`);
+document.querySelectorAll(".o").forEach(b=>b.onclick=()=>{A[q.id]=b.dataset.v;document.querySelectorAll(".o").forEach(x=>x.classList.remove("s"));b.classList.add("s");$("#nx").disabled=false;clearTimeout(window._t);window._t=setTimeout(()=>go(ix+1),340)});
+$("#bk").onclick=()=>go(ix-1);$("#nx").onclick=()=>A[q.id]&&go(ix+1)}
+function go(n){clearTimeout(window._t);if(n<0)return intro();ix=n;qn()}
+function ico(id,v){const o=Q.find(q=>q.id===id).o.find(x=>x[0]===v);return o?o[1]:"⭐"}
+function resumen(){fl.style.width="100%";ct.innerHTML="<b>✓</b>";
+const rows=[["Materia","area"],["Música","musica"],["Historia","mundo"],["Personaje","avatar"],["Juego","estilo"],["Emoción","emocion"]].map(p=>`<div class="pr"><span class="e">${ico(p[1],A[p[1]])}</span><div><span>${p[0]}</span><b>${esc(A[p[1]]||"—")}</b></div></div>`).join("");
+scr(`<div class="card"><div class="k">TU PERFIL GAMER</div>${rows}${A.idea?`<div class="pr"><span class="e">💡</span><div><span>Tu idea</span><b style="font-size:15px">${esc(A.idea)}</b></div></div>`:""}<div id="sx" style="text-align:center;margin-top:12px;font:12px Orbitron;letter-spacing:1px">Enviando tus datos…</div></div><div class="nav" id="an"></div>`);
+enviar()}
+async function enviar(){const d={...Object.fromEntries(Q.map(q=>[q.id,A[q.id]||""])),ts:new Date().toISOString()};
+let ok=false;
+if(SHEET_URL.startsWith("https://")){try{await fetch(SHEET_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(d)});ok=true}catch(e){}}
+$("#sx").textContent=ok?"✅ ¡Datos guardados!":"⚠️ No se pudo guardar. Revisa tu conexión.";
+$("#an").innerHTML=ok?'<button class="b" id="fin">¡Listo! Continuar →</button>':'<button class="b gh" id="sk">Continuar igual</button><button class="b" id="rt">Reintentar</button>';
+if(ok)$("#fin").onclick=gracias;else{$("#sk").onclick=gracias;$("#rt").onclick=()=>{$("#sx").textContent="Reintentando…";enviar()}}}
+function gracias(){fl.style.width="100%";scr(`<div style="text-align:center"><div style="font-size:70px">✨</div><h1 style="font-size:clamp(26px,8vw,44px)">¡Chisme guardado!</h1><p class="lede">Tu gusto ya quedó registrado. Con la suma de todas las respuestas se va a construir el videojuego de <b>${UNIV}</b>. ¡Gracias por soltar la sopa! 🎮</p></div><div class="nav"><button class="b gh" id="ag" style="flex:1">Responder de nuevo</button></div>`);
+$("#ag").onclick=()=>{for(const k in A)delete A[k];intro()}}
+
+/* ============ PANEL DOCENTE ============ */
+let DATA=[];
+async function cargar(){const r=await fetch(SHEET_URL+"?clave="+encodeURIComponent(CL));const j=await r.json();if(j.error)throw 0;return j.rows}
+function cuenta(id){const m={};DATA.forEach(r=>{if(r[id])m[r[id]]=(m[r[id]]||0)+1});return Object.entries(m).sort((a,b)=>b[1]-a[1])}
+function resQ(q){const c=cuenta(q.id),n=c.reduce((a,x)=>a+x[1],0);if(!n)return null;
+const top=c[0],pct=top[1]/n*100,emp=c.filter(x=>x[1]===top[1]).map(x=>x[0]);
+const cons=pct>=50?"consenso claro":pct>=35?"tendencia marcada":"muy dividido";
+return{q,c,n,top,pct,emp,cons}}
+function resumenTexto(){return Q.filter(q=>!q.open).map(q=>{const r=resQ(q);if(!r)return"";return`## ${q.t}\nRespuestas: ${r.n}. Moda: ${r.emp.join(" / ")} (${r.pct.toFixed(0)}%). Lectura: ${r.cons}.\nDistribución: ${r.c.map(x=>x[0]+"="+x[1]+" ("+(x[1]/r.n*100).toFixed(0)+"%)").join("; ")}`}).join("\n\n")+"\n\n## Ideas abiertas de los estudiantes\n"+(DATA.filter(r=>r.idea).map(r=>"- "+r.idea).join("\n")||"(ninguna)")}
+const PROMPT=`Actúa como un analista de datos educativos y un experto en diseño de videojuegos gamificados. Tu objetivo es ayudar a un docente a analizar los resultados de una encuesta llamada "Chismógrafo Gamer" (el Chismógrafo de La Palma) aplicada a sus estudiantes, traduciendo los datos en decisiones pedagógicas claras y sencillas, sin lenguaje excesivamente técnico ni intimidante.
+
+Estructura tu respuesta así:
+1. Visión general amigable: un párrafo muy breve con el "clima" del grupo (qué les mueve, qué les apasiona).
+2. Análisis detallado por pregunta: todas son de opción múltiple (categóricas), así que en vez de media y mediana indica la moda, el porcentaje de cada opción y si hay consenso claro o respuestas divididas (dispersión), explicado en palabras castizas y sencillas. Para las ideas abiertas, agrúpalas por temas y dime los patrones que más se repiten.
+3. Propuesta de visualización: qué gráfico (barras, torta, etc.) es el más adecuado para cada pregunta y qué mostraría.
+4. Traducción al diseño del videojuego (lo más importante), basada estrictamente en los datos: qué género o estilo les atrae más; qué temáticas, contextos y elementos visuales prefieren; qué nivel de reto y mecánicas entusiasmarían más a este grupo.
+
+Sé claro, directo y estructurado, para que el profesor lo use de inmediato en el diseño de su recurso didáctico. Escribe en español y en texto plano, sin tablas.`;
+async function panel(){CL=prompt("Clave del docente:");if(!CL)return;
+scr('<div class="card">Cargando respuestas…</div>');fl.style.width="100%";ct.innerHTML="";
+try{DATA=await cargar()}catch(e){scr('<div class="card">Clave incorrecta o sin conexión.</div><div class="nav"><button class="b gh" id="vv">← Volver</button></div>');$("#vv").onclick=intro;return}
+const rs=Q.filter(q=>!q.open).map(resQ).filter(Boolean);
+const bars=rs.map(r=>`<div class="card"><div class="k">${r.q.t}<span class="tag">${r.cons}</span></div>${r.c.map(x=>`<div class="row"><div class="l">${ico(r.q.id,x[0])} ${esc(x[0])}</div><div class="t"><i style="width:${x[1]/r.c[0][1]*100}%"></i></div><div class="n">${x[1]} · ${(x[1]/r.n*100).toFixed(0)}%</div></div>`).join("")}<div class="sub" style="margin:8px 0 0;font-size:14px">Moda: <b style="color:var(--ink)">${esc(r.emp.join(" / "))}</b> (${r.pct.toFixed(0)}% del grupo)</div></div>`).join("");
+const ideas=DATA.filter(r=>r.idea);
+scr(`<div class="k">PANEL DOCENTE</div><h2>${DATA.length} ${DATA.length==1?"respuesta":"respuestas"}</h2><div class="sub">Gráficos y análisis de lo que contestó el grupo.</div>
+${DATA.length?bars:'<div class="card">Aún no hay respuestas. Comparte el enlace con tus estudiantes.</div>'}
+${ideas.length?`<div class="card"><div class="k">IDEAS DE LOS ESTUDIANTES</div>${ideas.map(r=>"• "+esc(r.idea)).join("<br>")}</div>`:""}
+<div class="nav" style="flex-wrap:wrap"><button class="b gh" id="vv">← Volver</button><button class="b" id="az" ${DATA.length?"":"disabled"}>🧠 Copiar para analizar en Claude</button><button class="b gh" id="cv" ${DATA.length?"":"disabled"}>⬇ CSV</button></div>
+<div class="card an" id="out" style="display:none;margin-top:12px"></div>`);
+$("#vv").onclick=intro;
+$("#cv").onclick=()=>{const h=["ts",...Q.map(q=>q.id)];const csv=[h.join(",")].concat(DATA.map(r=>h.map(k=>'"'+String(r[k]||"").replace(/"/g,'""')+'"').join(","))).join("\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+csv],{type:"text/csv"}));a.download="chismografo-la-palma.csv";a.click()};
+$("#az").onclick=async()=>{const t=PROMPT+"\n\nDATOS DE LA ENCUESTA ("+DATA.length+" estudiantes):\n\n"+resumenTexto();try{await navigator.clipboard.writeText(t)}catch(e){}$("#az").textContent="✓ Copiado: pégalo en Claude";window.open("https://claude.ai/new","_blank")}}
+
+/* ============ GUÍA DISEÑA TU JUEGO ============ */
+async function guia(){fl.style.width="100%";ct.innerHTML="";scr('<div class="card">Buscando lo que le gusta a tu grupo…</div>');
+let J;try{J=await (await fetch(SHEET_URL)).json()}catch(e){}
+if(!J||!J.n){scr('<div class="card">Aún no hay suficientes respuestas del grupo. ¡Vuelve cuando más compañeros hayan contestado!</div><div class="nav"><button class="b gh" id="vv">← Volver</button></div>');$("#vv").onclick=intro;return}
+const T={};Q.filter(q=>!q.open).forEach(q=>{const e=Object.entries((J.agg||{})[q.id]||{}).sort((a,b)=>b[1]-a[1]);T[q.id]=e.length?{v:e[0][0],p:Math.round(e[0][1]/J.n*100)}:{v:"—",p:0}});
+const rows=[["Juego favorito","estilo"],["Historia","mundo"],["Personaje","avatar"],["Emoción","emocion"],["Música","musica"],["Materia","area"]].map(p=>`<div class="pr"><span class="e">${ico(p[1],T[p[1]].v)}</span><div><span>${p[0]} · ${T[p[1]].p}% del grupo</span><b>${esc(T[p[1]].v)}</b></div></div>`).join("");
+const P=[["Nombre de tu juego",1],["¿Qué tema quieres enseñar? (ej: tiro parabólico, la célula)",1],
+["Mecánica: ¿qué hace el jugador para aprender? A tu grupo le gustan los juegos de «"+T.estilo.v+"»."],
+["Historia: ¿quién es tu personaje y qué misión tiene? Idea del grupo: «"+T.avatar.v+"» en una historia de «"+T.mundo.v+"»."],
+["Reto: ¿cómo se gana, cómo se pierde y cómo sube la dificultad?"],
+["Emoción: ¿qué pondrías en el juego para que se sienta "+T.emocion.v.toLowerCase()+"?"],
+["Ambiente: ¿cómo se ve y cómo suena? Al grupo le gusta la música «"+T.musica.v+"»."]];
+scr(`<div class="k">DISEÑA TU PROPIO JUEGO</div><h2>Lo que le gusta a tu grupo</h2><div class="sub">Según ${J.n} ${J.n==1?"respuesta":"respuestas"}. Úsalo como inspiración para tu juego.</div><div class="card">${rows}</div>
+<div class="k">TU FICHA DE DISEÑO</div>${P.map((p,i)=>`<div class="card" style="padding:12px"><div class="sub" style="margin-bottom:6px">${i+1}. ${esc(p[0])}</div>${p[1]?`<input id="g${i}" maxlength="80" style="text-align:left">`:`<textarea id="g${i}" maxlength="400"></textarea>`}</div>`).join("")}
+<div class="sub" style="font-size:13px">Tu ficha se queda en tu pantalla: no se envía a ningún lado. Cópiala o imprímela antes de salir.</div>
+<div class="nav" style="flex-wrap:wrap"><button class="b gh" id="vv">← Volver</button><button class="b" id="cp">📋 Copiar ficha</button><button class="b gh" id="pt">🖨 Imprimir</button></div>`);
+$("#vv").onclick=intro;$("#pt").onclick=()=>window.print();
+$("#cp").onclick=async()=>{const t="FICHA DE DISEÑO · CHISMÓGRAFO DE LA PALMA\n\n"+P.map((p,i)=>(i+1)+". "+p[0]+"\n"+($("#g"+i).value.trim()||"(sin responder)")).join("\n\n");try{await navigator.clipboard.writeText(t);$("#cp").textContent="✓ Copiada"}catch(e){}}}
+
+intro();
+document.addEventListener("keydown",e=>{if(ix<0)return;const q=Q[ix];if(e.key==="ArrowLeft")go(ix-1);else if(e.key==="ArrowRight"&&(q.open||A[q.id]))q.open?(A.idea=($("#fr")||{value:""}).value.trim(),resumen()):go(ix+1)});
+</script></body></html>
